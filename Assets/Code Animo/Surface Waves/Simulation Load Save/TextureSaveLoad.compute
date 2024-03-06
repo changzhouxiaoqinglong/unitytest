@@ -1,0 +1,41 @@
+﻿// Copyright © 2017 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel readTexture
+#pragma kernel loadTexture
+
+#define numThreadsX 8
+#define numThreadsY 8
+
+int flattenIndex( uint3 threadId, uint width )
+{
+	return threadId.y * width + threadId.x;
+}
+
+
+Texture2D<float4> TextureToSave;
+RWStructuredBuffer<float4> PixelOut;
+
+[numthreads( numThreadsX, numThreadsY, 1 )]
+void readTexture( uint3 threadId : SV_DispatchThreadID )
+{
+	uint2 textureDimensions;
+	TextureToSave.GetDimensions( textureDimensions.x, textureDimensions.y );
+
+	int flatIndex = flattenIndex( threadId, textureDimensions.x );
+	PixelOut[flatIndex] = TextureToSave.Load( threadId );
+}
+
+
+RWTexture2D<float4> TargetTexture;
+StructuredBuffer<float4> PixelIn;
+
+[numthreads( numThreadsX, numThreadsY, 1 )]
+void loadTexture( uint3 threadId : SV_DispatchThreadID )
+{
+	uint2 textureDimensions;
+	TargetTexture.GetDimensions( textureDimensions.x, textureDimensions.y );
+
+	int flatIndex = flattenIndex( threadId, textureDimensions.x );
+	TargetTexture[threadId.xy] = PixelIn[flatIndex];
+}

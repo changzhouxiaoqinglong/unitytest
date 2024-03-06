@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Orange OpaqueFluid
+  m_Shader: {fileID: 4800000, guid: 3019562484aeaac45ba8fee4054fa40f, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _HeightTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _WaterData
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ReflectionCube
+        second:
+          m_Texture: {fileID: 8900000, guid: be3b6e2fad110f544aef2ff67809e0bd, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .15077275
+      data:
+        first:
+          name: _FresnelPower
+        second: 5
+      data:
+        first:
+          name: _Gloss
+        second: 1
+      data:
+        first:
+          name: _Scale
+        second: 10
+      data:
+        first:
+          name: _DiffuseStrength
+        second: .589285731
+      data:
+        first:
+          name: _EmissionStrength
+        second: 1
+    m_Colors:
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .661764741, g: .561225414, b: .141111612, a: 1}
+      data:
+        first:
+          name: _FogColor
+        second: {r: .701960802, g: .328555554, b: .12662822, a: 1}

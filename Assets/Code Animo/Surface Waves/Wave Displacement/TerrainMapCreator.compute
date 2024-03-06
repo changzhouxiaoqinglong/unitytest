@@ -1,0 +1,37 @@
+// Copyright © 2014 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel ComputeMap
+
+Texture2D GroundDepth;
+Texture2D DisplaceDepth;
+Texture2D WaveMapIn;
+
+float customNearClip;
+float customFarClip;
+
+float groundDepthOffset = -1;
+float groundDepthScale = 10;
+
+float getOrthographicDepth(float zValue){
+	zValue = 1.0 - zValue;
+	return zValue * (customFarClip - customNearClip) + customNearClip;
+}
+
+RWTexture2D<float4> DisplacementOut;
+[numthreads(32,32,1)]
+// Creates an offset that can be used for flow computation.
+// Offset includes terrain and objects under the waves.
+void ComputeMap (uint3 id : SV_DispatchThreadID){	
+	uint width, height;
+	GroundDepth.GetDimensions(width, height);
+	uint3 mirroredUv = id;
+	mirroredUv.y = (height - 1) - id.y;// Mirror UV because camera switched back and front.
+	
+	float groundHeight =	(getOrthographicDepth(	GroundDepth.Load(mirroredUv).r) + groundDepthOffset) / groundDepthScale;// Bottom Up
+	
+	float displaceHeight =	(getOrthographicDepth(DisplaceDepth.Load(mirroredUv).r) + groundDepthOffset) / groundDepthScale;
+	float waterDepth = WaveMapIn.Load( id ).b;// Top Down
+	
+		
+	DisplacementOut[id.xy] = float4(groundHeight, max(0, groundDepthScale * (groundHeight + waterDepth > displaceHeight)),0,0);}

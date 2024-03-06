@@ -1,0 +1,6 @@
+General Purpose GPU tools
+by Code Animo
+https://codeanimo.com
+
+[-Description-]
+Used for performing computations on the GPU, on various platforms.

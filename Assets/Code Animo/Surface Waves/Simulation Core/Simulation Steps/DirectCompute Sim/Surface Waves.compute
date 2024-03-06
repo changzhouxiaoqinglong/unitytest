@@ -1,0 +1,266 @@
+// Copyright © 2014 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel calculateFlow
+#pragma kernel computeWaveHeight
+#pragma kernel addWave
+#pragma kernel basicBlit
+
+Texture2D<float4> WaveMapIn;
+Texture2D<float4> AddedWavesMap;
+Texture2D<float4> HeightOffsetIn;
+Texture2D<float4> FlowMapIn;
+
+float TimeStep;
+float FlowDamping;
+
+//int simulationWidth = 256;
+//int simulationHeight = 256;
+
+// Coordinate offsets:
+static int3 leftOffset		= int3(-1, 0, 0);
+static int3 topOffset		= int3( 0, 1, 0);
+static int3 rightOffset		= int3( 1, 0, 0);
+static int3 bottomOffset	= int3( 0,-1, 0);
+
+RWTexture2D<float4> FlowMapOut;
+[numthreads(8,8,1)]
+void calculateFlow(uint3 id : SV_DispatchThreadId){
+	
+	float4 newFlow;
+	
+	// Calculate Neighbour coordinates:
+	int3 left		= id + leftOffset;
+	int3 top		= id + topOffset;
+	int3 right		= id + rightOffset;
+	int3 bottom		= id + bottomOffset;
+	
+	
+	// Load data for local cell
+	float4 waveHeight		= WaveMapIn.Load(id);
+	float4 heightOffset		= HeightOffsetIn.Load(id);
+	float4 oldFlow			= FlowMapIn.Load(id);
+	
+	// Look up terrain Heights:
+	float4 leftHeightOffset = HeightOffsetIn.Load(left);
+	float4 topHeightOffset = HeightOffsetIn.Load(top);
+	float4 rightHeightOffset = HeightOffsetIn.Load(right);
+	float4 bottomHeightOffset = HeightOffsetIn.Load(bottom);
+	
+	// Look up wave heights:
+	float waveLeft		= WaveMapIn.Load(left).b;
+	float waveTop		= WaveMapIn.Load(top).b;
+	float waveRight	= WaveMapIn.Load(right).b;
+	float waveBottom	= WaveMapIn.Load(bottom).b;
+	
+	float localPressure	= waveHeight.b + heightOffset.r + heightOffset.g;
+	
+	/*//DEBUG
+	left_total_terrain_height *= 0.3;
+	top_total_terrain_height *= 0.3;
+	right_total_terrain_height *= 0.3;
+	bottom_total_terrain_height *= 0.3;*/
+	
+	
+	
+	/* Calculate the intended acceleration towards neighbour pixels
+     * Notes:
+     * pressure is actually (height * viscosity * gravity), gravity is assumed to be 1
+     * acceleration is actually (delta pressure / distance * viscosity), in this case, distance is assumed to be 1
+     * deltaT specifies how big the acceleration steps are. Lower numbers mean more precision, slower movement. Higher means more artefacts, faster movement.
+     */
+	float leftPressure			= waveLeft		+ leftHeightOffset.r + leftHeightOffset.g;
+	float topPressure			= waveTop		+ topHeightOffset.r + topHeightOffset.g;
+	float rightPressure			= waveRight	+ rightHeightOffset.r + rightHeightOffset.g;
+	float bottomPressure 		= waveBottom	+ bottomHeightOffset.r + bottomHeightOffset.g;
+     
+    float leftAcceleration		= TimeStep * (localPressure - leftPressure);
+    float topAcceleration		= TimeStep * (localPressure - topPressure);
+    float rightAcceleration		= TimeStep * (localPressure - rightPressure);
+    float bottomAcceleration	= TimeStep * (localPressure - bottomPressure);
+    
+    float simulationWidth, simulationHeight;
+    FlowMapIn.GetDimensions(simulationWidth, simulationHeight);
+    
+    // Don't let waves flow out of the grid:
+    if (left.x		< 0						)	leftAcceleration = 0.0;
+    if (top.y		> simulationHeight -1	)	topAcceleration = 0.0;
+    if (right.x		> simulationWidth -1	)	rightAcceleration = 0.0;
+    if (bottom.y	< 0						)	bottomAcceleration = 0.0;
+    
+    // Only calculate flow away from here:
+    newFlow.r = max(0, leftAcceleration);
+    newFlow.g = max(0, topAcceleration);
+    newFlow.b = max(0, rightAcceleration);
+    newFlow.a = max(0, bottomAcceleration);
+	
+	
+	// Continue existing motion:
+	newFlow += oldFlow * FlowDamping;
+	
+	// Prevent wave level from dropping below 0:     
+    float totalOutFlow = newFlow.r + newFlow.g + newFlow.b + newFlow.a;
+    
+    //float maxOutFlow = min( 1.0, waveHeight.b);
+    float maxOutFlow = waveHeight.b;
+    //return normalize(newFlow) * min(totalOutFlow, waveHeight.b);
+    if (totalOutFlow > maxOutFlow){
+        if (totalOutFlow > 0.0){// Don't divide by zero.
+            newFlow *= maxOutFlow / totalOutFlow;
+        }
+        else newFlow = float4(0,0,0,0);
+    }
+		        
+	// Try to get rid of low levels of waves being stuck.
+//		float waveLeft = max(0,waveHeight.b - totalOutFlow);
+//		if (waveLeft < 0.001) newFlow += 0.25 * waveLeft;
+	
+	FlowMapOut[id.xy] = newFlow;// Output data for this cell
+	
+//	FlowMapOut[id.xy] = waveTop;//DEBUG inputs
+//	FlowMapOut[id.xy] = WaveMapIn.Load(id);// DEBUG Inputs
+//	FlowMapOut[id.xy] = float4(leftPressure,topPressure, rightPressure, 1) ;//Debug Inputs
+}
+
+
+
+// Sharing data with 'calculateWaveVelocity' and syntax sugar
+struct waveFlow{
+	float Left;
+	float Top;
+	float Right;
+	float Bottom;
+};
+
+float2 calculateWaveVelocity(float currentHeight, float previousHeight, waveFlow flowFrom, waveFlow flowTo){
+	float2 velocity = float2(0,0);
+	float avgHeight = 0.5 * (previousHeight + currentHeight);// Average height of this tile, from two frames.
+    
+    if (avgHeight > 0.0){// We'll dividing by avHeight soon
+        // Calculate the amount of fluid flowing through this column:
+        float xAmount = ( (flowFrom.Left - flowTo.Left) + (flowTo.Right - flowFrom.Right) ) * 0.5;
+        float yAmount = ( (flowFrom.Bottom - flowTo.Bottom) + (flowTo.Top - flowFrom.Top) ) * 0.5;// In buoyancy sim, it seemed as if this was reversed.
+        velocity.x = clamp(xAmount / avgHeight, -10, 10);// x component of velocity, prevent overflow
+        velocity.y = clamp(yAmount / avgHeight, -10, 10);// y component of velocity, prevent overflow
+    }
+	return velocity;
+}
+
+float FoamDecay;
+float FoamMultiplier;
+
+RWTexture2D<float4> WaveHeightOut;
+[numthreads(8,8,1)]
+void computeWaveHeight(uint3 threadId : SV_DispatchThreadId){
+	
+	float4 newWave = float4(0,0,0,0);
+	
+	// Calculate Neighbour coordinates:
+	int3 left		= threadId + leftOffset;
+	int3 top		= threadId + topOffset;
+	int3 right		= threadId + rightOffset;
+	int3 bottom		= threadId + bottomOffset;
+	
+	// Load data for local cell
+	float4 sampledWaveHeight	= WaveMapIn.Load(threadId);
+	float4 outFlow 				= FlowMapIn.Load(threadId);
+	float2 addedWaves			= AddedWavesMap.Load(threadId).rg;// Wave Sources and sinks
+	
+    // Load data from neighbouring cells
+    waveFlow flowFrom;
+	flowFrom.Left	= FlowMapIn.Load(	left	).b;// B Channel = Right
+	flowFrom.Top	= FlowMapIn.Load(	top		).a;// A Channel = Bottom
+    flowFrom.Right	= FlowMapIn.Load(	right	).r;// R channel = Left
+    flowFrom.Bottom	= FlowMapIn.Load(	bottom	).g;// G Channel = Top
+	
+	// It's easier for humans to read and correct flowToLeft than outFlow.r
+	waveFlow flowTo;
+	flowTo.Left		= outFlow.r;
+	flowTo.Top		= outFlow.g;
+	flowTo.Right	= outFlow.b;
+	flowTo.Bottom	= outFlow.a;
+							
+	float previousWaveHeight = sampledWaveHeight.b;
+	
+	float simulationWidth, simulationHeight;
+    FlowMapIn.GetDimensions(simulationWidth, simulationHeight);
+	
+    // Don't try to get flux from outside the grid:
+    if (left.x		< 0						)	flowFrom.Left = 0.0;
+    if (top.y		> simulationHeight -1	)	flowFrom.Top = 0.0;
+    if (right.x		> simulationWidth -1	)	flowFrom.Right = 0.0;
+    if (bottom.y	< 0						)	flowFrom.Bottom = 0.0;
+    
+    // Calculate total amount of in and out flux:
+    float totInFlow		= flowFrom.Left + flowFrom.Top + flowFrom.Right + flowFrom.Bottom + addedWaves.g;
+    float totOutFlow	= flowTo.Left + flowTo.Top + flowTo.Right + flowTo.Bottom + addedWaves.r;
+    totOutFlow			= min(totOutFlow, previousWaveHeight + totInFlow);// Avoid removing more wave than available.
+    
+    // Update wave Height:
+    newWave.b = previousWaveHeight + (totInFlow - totOutFlow);
+    
+    // Velocity: 
+    newWave.rg = calculateWaveVelocity(newWave.b, previousWaveHeight, flowFrom, flowTo);
+    
+    // Foam:
+    float shockFoam		= abs(totInFlow - totOutFlow);
+    float previousFoam	= sampledWaveHeight.a * FoamDecay;// Left over from last frame
+    
+    shockFoam *= abs(newWave.r) + abs(newWave.g);
+    shockFoam *= FoamMultiplier;
+	
+	newWave.a = saturate(previousFoam + shockFoam);// Foam in Alpha channel
+	
+//	newWave.rg = 0.5 * (newWave.rg + float2(1,1));
+	// Write output:
+	WaveHeightOut[threadId.xy] = newWave;
+	
+}
+
+float xLoc = 0.5;
+float yLoc = 0.5;
+float Intensity = 0.5;
+float SizeRatio = 0.1;
+Texture2D<float4> InputShape;
+SamplerState LinearClampSampler;
+SamplerState samplerInputShape;
+
+[numthreads(8,8,1)]
+void addWave(uint3 threadId : SV_DispatchThreadId){
+	// Dimensions of the simulation:
+	float simulationWidth, simulationHeight;
+    FlowMapIn.GetDimensions(simulationWidth, simulationHeight);
+	
+	// Convert threadId to uv coordinates:
+	float2 uv;
+	uv.x = float(threadId.x) / simulationWidth;
+	uv.y = float(threadId.y) / simulationHeight;
+	
+	// Calculate input texture coordinates:
+	float2 inputUv = (float2(xLoc, yLoc) - uv) / SizeRatio + float2(0.5, 0.5);
+	
+	// Sample input texture:
+//	float height = InputShape.Load(threadId).r;// DEBUG, load DOES work with buoyancy texture lookups.
+	float height = InputShape.SampleLevel(LinearClampSampler, inputUv.xy, 0).r;// TODO: change mipmap level based on scale.
+	float4 previousInput = WaveMapIn.Load(threadId);
+	
+//	WaveHeightOut[threadId.xy] = previousInput + float4(height * Intensity,0,0,0);// DEBUG buoyancy related problems.
+	
+	
+	WaveHeightOut[threadId.xy] = previousInput + float4(height * Intensity,0,0,0);
+}
+
+Texture2D<float4> BlitIn;
+SamplerState samplerBlitIn;
+
+RWTexture2D<float4> BlitOut;
+[numthreads(8,8,1)]
+void basicBlit(uint3 threadId: SV_DispatchThreadId){
+	float outWidth, outHeight;
+	BlitOut.GetDimensions(outWidth, outHeight);
+	
+	float2 uvCoordinates = float2(threadId.x / outWidth, threadId.y / outHeight);
+	
+	BlitOut[threadId.xy] = BlitIn.SampleLevel(samplerBlitIn, uvCoordinates, 0);
+//	BlitOut[threadId.xy] = BlitIn.Load(threadId);
+}

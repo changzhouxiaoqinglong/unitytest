@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: ab2e9b45f43e00c45b689a7b37c27bc3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - componentHelp: {fileID: 11400000, guid: d4776063eb8036c4887b300f54610998, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

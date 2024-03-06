@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: About Simulation Speed
+  m_EditorClassIdentifier: 
+  buttonLabel: Changing Simulation Speed
+  text: 'There are several different things that influence the apparent speed of waves
+    in Surface Waves. Resolution, Framerate, how many times the simulation is run
+    per frame, and the timescale of the flow step.
+
+
+    The wave in the simulation are represented by cells which only communicate with
+    their neighbours. That means that it takes longer  for the wave to travel a certain
+    distance, if there are more cells that need to pass on the information. So increasing
+    resolution reduces the speed of the waves in world-units.
+
+
+    In Surface Waves version a2 the simulation does not run a fixed number of steps
+    per frame, like physics. So the waves appear to move slower at lower framerates.
+    In future versions, the simulation might be run independently of framerate.
+
+
+    One possible way to speed up the simulation is to run the core of the simulation,
+    the repeatable steps, multiple times per frame. The Repeatable Steps component
+    allows you to set the number of times that each step should be run.
+
+
+    Changing the deltatime variable on the WaveFlowCompute component also has an affect
+    on the speed at which waves seem to move, although it''s not very suitable for
+    it. The value reduces how much height of the waves is moved between cells each
+    frame. Higher values make the waves appear less viscous, but they also make the
+    simulation less stable (values over .5 will start looking like noise, because
+    at that point the highest wave value will be on a different cell each frame).'
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

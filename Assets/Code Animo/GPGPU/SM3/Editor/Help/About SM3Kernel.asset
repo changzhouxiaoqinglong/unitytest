@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: About SM3Kernel
+  m_EditorClassIdentifier: 
+  buttonLabel: SM3 Kernel (component)
+  text: "'Kernel' Components manage bits of code that runs on the GPU. The actual
+    kernels themselves are found in shader files.\n\nSM3 stands for Shader Model 3.
+    This component manages kernels that use standard Vertex + Fragment Shaders. \n\nWhen
+    higher Shader Models are supported, you might just as well use compute shaders.
+    These kernels are often used as a fall-back.\n\n\nYou can specify which pass should
+    be used by setting its index, or -1 if you want to run all passes.\n\nOutput Texture
+    name needs to be set to the name that's used by the code that uses this Kernel
+    Component. "
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

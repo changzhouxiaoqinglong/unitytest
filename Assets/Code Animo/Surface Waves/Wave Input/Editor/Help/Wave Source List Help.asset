@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: Wave Source List Help
+  m_EditorClassIdentifier: 
+  buttonLabel: Wave Source List (component)
+  text: 'The Wave Source List Component manages all the wave inputs and outputs. It
+    automatically sets the ''previous input'' reference of each wave source so that
+    they can combine all their data into a single input/ouput texture.
+
+
+    You can use the ''Create Source'' and ''Create Drain'' buttons to create wave
+    Sources that are automatically added to the list. (Unfortunately in version a2
+    this only works when not in play mode.)'
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

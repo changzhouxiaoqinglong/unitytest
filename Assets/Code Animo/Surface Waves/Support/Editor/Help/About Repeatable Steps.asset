@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: About Repeatable Steps
+  m_EditorClassIdentifier: 
+  buttonLabel: Repeatable Steps (component)
+  text: These steps are at the core of the simulation. They can be repeated multiple
+    times per frame
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

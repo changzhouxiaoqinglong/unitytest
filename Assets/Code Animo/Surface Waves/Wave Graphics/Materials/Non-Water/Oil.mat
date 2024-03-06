@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Oil
+  m_Shader: {fileID: 4800000, guid: 3019562484aeaac45ba8fee4054fa40f, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _HeightTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _WaterData
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ReflectionCube
+        second:
+          m_Texture: {fileID: 8900000, guid: be3b6e2fad110f544aef2ff67809e0bd, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DepthTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .459537774
+      data:
+        first:
+          name: _FresnelPower
+        second: 5
+      data:
+        first:
+          name: _Gloss
+        second: .214285731
+      data:
+        first:
+          name: _Scale
+        second: 10
+      data:
+        first:
+          name: _Tessellation
+        second: 4
+      data:
+        first:
+          name: _Refraction
+        second: 0
+      data:
+        first:
+          name: _FogFalloff
+        second: .214285731
+      data:
+        first:
+          name: _FogViewDist
+        second: 0
+      data:
+        first:
+          name: _BlendDepth
+        second: 0
+      data:
+        first:
+          name: _LightingWrap
+        second: 0
+      data:
+        first:
+          name: _FoamStrength
+        second: 0
+      data:
+        first:
+          name: _FoamPower
+        second: 1
+      data:
+        first:
+          name: _FoamBias
+        second: -.428571433
+      data:
+        first:
+          name: _gridSizeU
+        second: 1
+      data:
+        first:
+          name: _gridSizeV
+        second: 1
+      data:
+        first:
+          name: _FoamThreshold
+        second: 0
+      data:
+        first:
+          name: _ClipHeight
+        second: .00100000005
+      data:
+        first:
+          name: _FoamEdgeWidth
+        second: .100000001
+      data:
+        first:
+          name: _ResolutionTessellationScale
+        second: 1
+      data:
+        first:
+          name: _DiffuseStrength
+        second: 1
+      data:
+        first:
+          name: _EmissionStrength
+        second: 0
+    m_Colors:
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .948529422, g: .951014221, b: 1, a: 1}
+      data:
+        first:
+          name: _FogColor
+        second: {r: .0296193752, g: .0329459459, b: .0352941155, a: 1}
+      data:
+        first:
+          name: _FogDiffuseColor
+        second: {r: .0352941193, g: .0352941193, b: .0352941193, a: 1}
+      data:
+        first:
+          name: _FogFilterColor
+        second: {r: .0862745121, g: .0862745121, b: .0862745121, a: 1}
+      data:
+        first:
+          name: _FoamColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _EmissiveFog
+        second: {r: .169551343, g: .0317906439, b: .720588207, a: 1}

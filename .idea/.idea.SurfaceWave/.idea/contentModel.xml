@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Xion\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Xion\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_SurfaceWave.-517019149.00" t="ExcludeRecursive" />
+    <e p="D:\WorkStation\TestProjects\SurfaceWave" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Code Animo" t="Include">
+          <e p="About Code Animo.txt" t="Include" />
+          <e p="Asset Exporter" t="Include">
+            <e p="Editor" t="Include">
+              <e p="AssetCreation.cs" t="Include" />
+            </e>
+          </e>
+          <e p="CameraControl" t="Include">
+            <e p="CameraFreeFlight.cs" t="Include" />
+          </e>
+          <e p="CustomMaterialEditor" t="Include">
+            <e p="Editor" t="Include">
+              <e p="CustomMaterialEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Defines" t="Include">
+            <e p="MouseButton.cs" t="Include" />
+          </e>
+          <e p="Demo Content" t="Include">
+            <e p="Demo Controls" t="Include">
+              <e p="WaveInputTurbulence.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="CodeAnimoEditorStyles.cs" t="Include" />
+            <e p="EditorGUIControls.cs" t="Include" />
+            <e p="GUIPositioning.cs" t="Include" />
+          </e>
+          <e p="ExceptionPausedDrawer" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ExceptionPausedDrawer.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GPGPU" t="Include">
+            <e p="About.txt" t="Include" />
+            <e p="DirectCompute" t="Include">
+              <e p="ComputeKernel.cs" t="Include" />
+              <e p="ComputeKernel1D.cs" t="Include" />
+              <e p="ComputeKernel2D.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="ComputeKernel1DEditor.cs" t="Include" />
+                <e p="ComputeKernel2DEditor.cs" t="Include" />
+                <e p="ComputeKernelEditor.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="KernelInspector.cs" t="Include" />
+            </e>
+            <e p="Kernel.cs" t="Include" />
+            <e p="SM3" t="Include">
+              <e p="Editor" t="Include">
+                <e p="SM3KernelEditor.cs" t="Include" />
+              </e>
+              <e p="SM3Kernel.cs" t="Include" />
+            </e>
+            <e p="Texture Generation" t="Include">
+              <e p="Editor" t="Include">
+                <e p="SimTextureSettingsMenuItem.cs" t="Include" />
+                <e p="SimulationTextureSettingsEditor.cs" t="Include" />
+                <e p="TextureFactoryEditor.cs" t="Include" />
+              </e>
+              <e p="SimulationTextureSettings.cs" t="Include" />
+              <e p="TextureFactory.cs" t="Include" />
+            </e>
+          </e>
+          <e p="InteractiveLoader" t="Include">
+            <e p="Editor" t="Include">
+              <e p="InteractiveLoaderEditor.cs" t="Include" />
+            </e>
+            <e p="InteractiveLoader.cs" t="Include" />
+          </e>
+          <e p="MouseHitFinder" t="Include">
+            <e p="MouseHitFinder.cs" t="Include" />
+          </e>
+          <e p="Reorderable List" t="Include">
+            <e p="Attributes" t="Include">
+              <e p="ReorderableListAttribute.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="ReorderableListDrawer.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Support" t="Include">
+            <e p="About this folder.txt" t="Include" />
+            <e p="Attributes" t="Include">
+              <e p="ProductInfoAttribute.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="GettingStartedWithCodeAnimoEditor.cs" t="Include" />
+              <e p="HelpMenuItems.cs" t="Include" />
+            </e>
+            <e p="Getting Started With Code Animo" t="Include">
+              <e p="GettingStartedWithCodeAnimo.cs" t="Include" />
+              <e p="ProductData.cs" t="Include" />
+            </e>
+            <e p="HelpViewer" t="Include">
+              <e p="Article.cs" t="Include" />
+              <e p="Attributes" t="Include">
+                <e p="DescriptionAttribute.cs" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="ArticleDrawer.cs" t="Include" />
+                <e p="DescriptionDrawer.cs" t="Include" />
+                <e p="HelpViewer.cs" t="Include" />
+                <e p="InteractiveArticle.cs" t="Include" />
+                <e p="ReferencingArticle.cs" t="Include" />
+                <e p="ReferencingArticleDrawer.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Surface Waves" t="Include">
+            <e p="Buoyancy" t="Include">
+              <e p="Buoy.cs" t="Include" />
+              <e p="BuoyancyManager.cs" t="Include" />
+              <e p="DX11" t="Include">
+                <e p="Buoyancy.compute" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="BuoyEditor.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Heightmap Calculation Shaders" t="Include">
+              <e p="Compute Shaders" t="Include">
+                <e p="WaveDisplacement.compute" t="Include" />
+              </e>
+              <e p="SM3 Shaders" t="Include">
+                <e p="WaveMeshDisplacement.shader" t="Include" />
+              </e>
+            </e>
+            <e p="Readme.txt" t="Include" />
+            <e p="Setup" t="Include">
+              <e p="Editor" t="Include">
+                <e p="RenderingStepsBuilder.cs" t="Include" />
+                <e p="RepeatableStepsBuilder.cs" t="Include" />
+                <e p="RootNodeBuilder.cs" t="Include" />
+                <e p="StartStepBuilder.cs" t="Include" />
+                <e p="SurfaceWavesBuilder.cs" t="Include" />
+                <e p="WaveSurfaceBuilder.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Simulation Core" t="Include">
+              <e p="Dimensions.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DimensionsEditor.cs" t="Include" />
+              </e>
+              <e p="SimTextureMerger.cs" t="Include" />
+              <e p="Simulation Steps" t="Include">
+                <e p="DirectCompute Sim" t="Include">
+                  <e p="Surface Waves.compute" t="Include" />
+                </e>
+                <e p="RepeatingSimulationFlow.cs" t="Include" />
+                <e p="SimulationFlow.cs" t="Include" />
+                <e p="SimulationOutput.cs" t="Include" />
+                <e p="SimulationStep.cs" t="Include" />
+                <e p="SM3 Kernels" t="Include">
+                  <e p="FlowKernel.shader" t="Include" />
+                  <e p="HeightComputeKernel.shader" t="Include" />
+                </e>
+                <e p="WaveFlowCompute.cs" t="Include" />
+                <e p="WaveHeightCompute.cs" t="Include" />
+                <e p="WaveHeightInitialize.cs" t="Include" />
+              </e>
+              <e p="Simulation Textures" t="Include">
+                <e p="DepthmapSaver.cs" t="Include" />
+                <e p="DX11" t="Include">
+                  <e p="BufferSaveDepthMap.cs" t="Include" />
+                  <e p="DepthMapBufferConversion.compute" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="SimulationSaverEditor.cs" t="Include" />
+                </e>
+                <e p="SimulationSaver.cs" t="Include" />
+              </e>
+              <e p="StepStateManager.cs" t="Include" />
+            </e>
+            <e p="Simulation Load Save" t="Include">
+              <e p="Editor" t="Include">
+                <e p="SimulationLoadEditor.cs" t="Include" />
+                <e p="SimulationSaveEditor.cs" t="Include" />
+                <e p="SimulationTextureDataEditor.cs" t="Include" />
+              </e>
+              <e p="SimulationLoad.cs" t="Include" />
+              <e p="SimulationSave.cs" t="Include" />
+              <e p="SimulationTextureData.cs" t="Include" />
+              <e p="TextureSaveLoad.compute" t="Include" />
+            </e>
+            <e p="Support" t="Include">
+              <e p="AboutComponent.cs" t="Include" />
+              <e p="AboutDefaultMainFlow.cs" t="Include" />
+              <e p="AboutFrameStartSteps.cs" t="Include" />
+              <e p="AboutRenderingSteps.cs" t="Include" />
+              <e p="AboutRepeatableSteps.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="AboutDefaultMainFlowEditor.cs" t="Include" />
+                <e p="AboutFrameStartStepsEditor.cs" t="Include" />
+                <e p="GettingStartedWithSurfaceWavesEditor.cs" t="Include" />
+                <e p="SupportMenuItem.cs" t="Include" />
+                <e p="SurfaceWavesFAQEditor.cs" t="Include" />
+              </e>
+              <e p="Getting Started.txt" t="Include" />
+              <e p="GettingStartedWithSurfaceWaves.cs" t="Include" />
+              <e p="SurfaceWavesFAQ.cs" t="Include" />
+            </e>
+            <e p="Surface Meshes" t="Include">
+              <e p="Editor" t="Include">
+                <e p="GridMeshGroupInspector.cs" t="Include" />
+                <e p="GridMeshInspector.cs" t="Include" />
+              </e>
+              <e p="GridHeightData.cs" t="Include" />
+              <e p="GridMesh.cs" t="Include" />
+              <e p="GridMeshGroup.cs" t="Include" />
+            </e>
+            <e p="Wave Displacement" t="Include">
+              <e p="BlitDepthWrite.shader" t="Include" />
+              <e p="DisplacingDepth.shader" t="Include" />
+              <e p="GroundHeightDepth.shader" t="Include" />
+              <e p="HeightOffsetRenderer.cs" t="Include" />
+              <e p="SM3 Shaders" t="Include">
+                <e p="WaterHeightOffsetKernel.shader" t="Include" />
+              </e>
+              <e p="TerrainHeightRenderer.cs" t="Include" />
+              <e p="TerrainMapCreator.compute" t="Include" />
+              <e p="WaveDisplaceDepth.shader" t="Include" />
+              <e p="WaveDisplaceRenderer.cs" t="Include" />
+              <e p="WaveHeightOffsetCreator.cs" t="Include" />
+              <e p="WriteDepthNear.shader" t="Include" />
+            </e>
+            <e p="Wave Graphics" t="Include">
+              <e p="CameraDepthChecker.cs" t="Include" />
+              <e p="Display Shaders" t="Include">
+                <e p="BasicWaterSurface.shader" t="Include" />
+                <e p="ComplexWater.cginc" t="Include" />
+                <e p="ComplexWater.shader" t="Include" />
+                <e p="HeightmapSurface.cginc" t="Include" />
+                <e p="OpaqueFluid.shader" t="Include" />
+                <e p="WaterSurface.shader" t="Include" />
+              </e>
+              <e p="Editor" t="Include">
+                <e p="CameraDepthCheckerEditor.cs" t="Include" />
+                <e p="WaveMeshGroupEditor.cs" t="Include" />
+              </e>
+              <e p="HeightMeshDepth.shader" t="Include" />
+              <e p="Materials" t="Include">
+                <e p="Enabling Depth Based Fog.txt" t="Include" />
+              </e>
+              <e p="WaveDepthRenderer.cs" t="Include" />
+              <e p="WaveMesh.cs" t="Include" />
+              <e p="WaveMeshGroup.cs" t="Include" />
+              <e p="WaveMeshOffsetCreator.cs" t="Include" />
+            </e>
+            <e p="Wave Input" t="Include">
+              <e p="Editor" t="Include">
+                <e p="WaveSourceListEditor.cs" t="Include" />
+              </e>
+              <e p="MouseSource.cs" t="Include" />
+              <e p="Shader Model 3" t="Include">
+                <e p="WaveInput.shader" t="Include" />
+              </e>
+              <e p="WaveSource.cs" t="Include" />
+              <e p="WaveSourceList.cs" t="Include" />
+            </e>
+          </e>
+          <e p="TextureDebug" t="Include">
+            <e p="About.txt" t="Include" />
+            <e p="Attributes" t="Include">
+              <e p="TextureDebugAttribute.cs" t="Include" />
+            </e>
+            <e p="Debug Shaders" t="Include">
+              <e p="CameraDepthCopy.shader" t="Include" />
+              <e p="ChannelValueThreshold.shader" t="Include" />
+              <e p="DepthTextureVisualizer.shader" t="Include" />
+              <e p="NaNfinder.shader" t="Include" />
+              <e p="TextureAnalysis.shader" t="Include" />
+              <e p="ValueRange.shader" t="Include" />
+            </e>
+            <e p="DebugImageEffect.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="TextureAnalyserWindow.cs" t="Include" />
+              <e p="TextureDebugDrawer.cs" t="Include" />
+              <e p="TextureDisplay.cs" t="Include" />
+            </e>
+            <e p="TextureDebugSubTest.cs" t="Include" />
+            <e p="TextureDebugTest.cs" t="Include" />
+          </e>
+          <e p="UnityExtensions" t="Include">
+            <e p="ComponentExtensions.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="Reflection" t="Include">
+                <e p="FieldFinder.cs" t="Include" />
+                <e p="SemiSerializedField.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GameObjectExtensions.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SurfaceWave.sln" t="IncludeFlat" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: Terrain Height Renderer
+  m_EditorClassIdentifier: 
+  buttonLabel: Terrain Height Renderer (component)
+  text: 'This component renders a depth map of the scene so the simulation can run
+    on top of it.
+
+
+    The most important setting is "Rendered Layers". The waves will appear to flow
+    on top of all the meshes that are visible in this layer.
+
+
+    The Camera Near Plane setting is applied to the depth camera it creates. Camera
+    Height Offset compensates for the Near plane; it is there to make sure that objects
+    near the bottom of the simulation are rendered.
+
+
+    Behind the scenes information:
+
+    It renders the simulation area from the bottom, but only renders the farthest
+    away surfaces. This means that the resulting texture does not have to be mirrored
+    by the simulation. It is also done in an attempt to show the highest LOD of a
+    model at low altitude.'
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

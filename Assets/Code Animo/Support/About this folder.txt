@@ -1,0 +1,8 @@
+This folder contains code for providing help with Code Animo products.
+
+Most of the actual support can be found near the products themselves.
+
+
+In case you've opened this file in desperation, while trying to find help; you can contact me:
+Twitter: @CodeAnimo
+e-mail: laurens.mathot@codeanimo.com

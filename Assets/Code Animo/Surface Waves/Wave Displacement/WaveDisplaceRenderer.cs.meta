@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: dfbbbfa3f6b569a4aabffa72f3ecd8ad
+timeCreated: 1509934713
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - componentHelp: {instanceID: 0}
+  - standardSettingsPrefab: {fileID: 1199492580278196, guid: daefc8ec7f44bb6408c2ead4bdccd53b,
+      type: 2}
+  - simulationSize: {instanceID: 0}
+  - m_outputData: {instanceID: 0}
+  - depthShader: {instanceID: 0}
+  - m_depthClearShader: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

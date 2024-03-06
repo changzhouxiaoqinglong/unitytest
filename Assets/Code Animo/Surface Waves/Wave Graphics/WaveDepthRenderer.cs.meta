@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 337dd2d4d6a141746896f04585cc2996
+labels:
+- Surface
+- Waves
+- Simulation
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - standardSettingsPrefab: {fileID: 100000, guid: 1d7de4b085cdcab468e7c5fa8dab4e19,
+      type: 2}
+  - simulationSize: {instanceID: 0}
+  - m_outputData: {instanceID: 0}
+  - depthShader: {instanceID: 0}
+  - selectedWater: {instanceID: 0}
+  - depthCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

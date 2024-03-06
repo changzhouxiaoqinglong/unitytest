@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Fjord Water 1
+  m_Shader: {fileID: 4800000, guid: efc126f3b36c99e4d8e36e3ef88983c6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CameraDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DepthTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTexture:
+        m_Texture: {fileID: 2800000, guid: f7719259a36ae5d4d9612a5d466b2a71, type: 3}
+        m_Scale: {x: 32, y: 32}
+        m_Offset: {x: 0, y: 0}
+    - _HeightTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionCube:
+        m_Texture: {fileID: 8900000, guid: be3b6e2fad110f544aef2ff67809e0bd, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterData:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BlendDepth: 0
+    - _ClipHeight: 0
+    - _EdgeULength: 0.0009765625
+    - _EdgeVLength: 0.0009765625
+    - _FoamAccThreshold: 0.0054326924
+    - _FoamBias: -1
+    - _FoamDepth: 0
+    - _FoamEdgeWidth: 1.25875
+    - _FoamMinimumStrength: 0.3653846
+    - _FoamPower: 8
+    - _FoamStrength: 62.5
+    - _FoamThreshold: 0
+    - _FogFalloff: 1
+    - _FogViewDist: 60
+    - _FresnelPower: 5
+    - _Gloss: 0.035714272
+    - _LightingWrap: 1
+    - _MaxFoamDepth: 20
+    - _OverUnderFoamMix: 0.83928573
+    - _Refraction: 5
+    - _ResolutionTessellationScale: 1
+    - _Scale: 10
+    - _Shininess: 0.123305574
+    - _Tessellation: 4
+    - _Transparency: 0.94285715
+    - _UvSpacingX: 0.001953125
+    - _UvSpacingY: 0.001953125
+    - _gridSizeU: 2
+    - _gridSizeV: 2
+    m_Colors:
+    - _EmissiveFog: {r: 0.5588235, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 0.8885346, g: 0.8897076, b: 0.80466336, a: 1}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogDiffuseColor: {r: 0.10197275, g: 0.28496632, b: 0.30147672, a: 1}
+    - _FogFilterColor: {r: 0.462751, g: 0.8196105, b: 0.9803925, a: 1}
+    - _SpecColor: {r: 1, g: 0.9464503, b: 0.64705884, a: 1}

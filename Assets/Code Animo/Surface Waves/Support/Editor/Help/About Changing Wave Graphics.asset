@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b031469e70736438d2c78dd3e253b3, type: 3}
+  m_Name: About Changing Wave Graphics
+  m_EditorClassIdentifier: 
+  buttonLabel: Changing Wave Graphics
+  text: The waves are displayed as dynamically displaced meshes. You can change the
+    material used for this on the Wave Surface Component.
+  drawerScript: {fileID: 11500000, guid: 2129a5929374c9f42af728433685b399, type: 3}
+  referencedObject: {fileID: 11500000, guid: e10a76b248d21f64baa59e4d5881d595, type: 3}
+  referenceButtonLabel:
+    m_Text: Select WaveMeshGroup
+    m_Image: {fileID: 0}
+    m_Tooltip: 

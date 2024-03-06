@@ -1,0 +1,53 @@
+// Copyright © 2014 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel createDisplacementTexture
+
+// Coordinate offsets:
+static int3 leftOffset = int3(-1, 0, 0);
+static int3 topOffset = int3(0, 1, 0);
+static int3 rightOffset = int3(1, 0, 0);
+static int3 bottomOffset = int3(0, -1, 0);
+
+// Sharing data with 'calculateWaveVelocity' and syntax sugar
+struct neighbors{
+	float Left;
+	float Top;
+	float Right;
+	float Bottom;
+};
+
+Texture2D WaveMapIn;
+Texture2D TerrainMapIn;
+
+RWTexture2D<float> DisplacementTextureOut;
+[numthreads(8,8,1)]
+// Used by the wave mesh for vertex displacement.
+void createDisplacementTexture(uint3 threadId : SV_DispatchThreadId){
+	float waveHeight = WaveMapIn.Load(threadId).b;
+	float terrain = TerrainMapIn.Load(threadId).r;
+
+	// Calculate Neighbour coordinates:
+	int3 left = threadId + leftOffset;
+	int3 top = threadId + topOffset;
+	int3 right = threadId + rightOffset;
+	int3 bottom = threadId + bottomOffset;
+
+	// Load data from neighbouring cells
+	neighbors waveHeights;
+	waveHeights.Left =		WaveMapIn.Load( left ).b;
+	waveHeights.Top =		WaveMapIn.Load( top ).b;
+	waveHeights.Right =		WaveMapIn.Load( right ).b;
+	waveHeights.Bottom =	WaveMapIn.Load( bottom ).b;
+
+	waveHeights.Left +=		TerrainMapIn.Load( left ).r;
+	waveHeights.Top +=		TerrainMapIn.Load( top ).r;
+	waveHeights.Right +=	TerrainMapIn.Load( right ).r;
+	waveHeights.Bottom +=	TerrainMapIn.Load( bottom ).r;
+	
+	// Picking the lowest local value gives smoother terrain transitions in most cases:
+	float height = min( waveHeights.Left, min( waveHeights.Top, min( waveHeights.Right, min( waveHeights.Bottom, terrain + waveHeight ) ) ) );
+	
+	DisplacementTextureOut[threadId.xy] = height;
+
+}

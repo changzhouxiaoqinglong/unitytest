@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 6b6cc1576bf43ce449164b62a8e9586e
+labels:
+- Surface
+- Waves
+- Simulation
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - componentHelp: {fileID: 11400000, guid: 6b26602efc91afc49b4bbde5371671cc, type: 2}
+  - standardSettingsPrefab: {fileID: 100000, guid: 94cb7dd55a3768946aafca649ff744e9,
+      type: 2}
+  - simulationSize: {instanceID: 0}
+  - m_outputData: {instanceID: 0}
+  - waveData: {instanceID: 0}
+  - terrainData: {instanceID: 0}
+  - selectedWave: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

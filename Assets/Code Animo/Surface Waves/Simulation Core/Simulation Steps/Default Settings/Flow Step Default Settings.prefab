@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 400000}
+  - component: {fileID: 11400000}
+  - component: {fileID: 11400006}
+  - component: {fileID: 11400004}
+  - component: {fileID: 11400002}
+  - component: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: Flow Step Default Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a858339a91215343aedebdd57290192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentHelp: {fileID: 0}
+  standardSettingsPrefab: {fileID: 0}
+  simulationSize: {fileID: 0}
+  m_outputData: {fileID: 0}
+  heightOffsetData: {fileID: 0}
+  waveHeightData: {fileID: 0}
+  flowDamping: 0.99
+  deltaTime: 0.13
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9294bd4c88d9743892323822bb95cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentHelp: {fileID: 0}
+  simulationShader: {fileID: 4800000, guid: 2e1d5f1cb2fbf784795b1b53bd371a92, type: 3}
+  outputTextureName: FlowMapOut
+  pass: -1
+  m_simulationMaterial: {fileID: 0}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab0ad23e9e17404f9808bdd6f0a9ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warpWidth: 8
+  warpHeight: 8
+  warpDepth: 1
+  m_simulationShader: {fileID: 7200000, guid: 4a28ec0d353a1e743a50875ef0e09056, type: 3}
+  m_kernelName: calculateFlow
+  _kernelFound: 1
+  kernelIndex: 0
+  componentHelp: {fileID: 0}
+  forceCustomResolution: 0
+  m_customResolutionU: 512
+  m_customResolutionV: 512
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05264f09c8cdcdf44b6f0c584f8efbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentHelp: {fileID: 0}
+  textureSettings: {fileID: 11400000, guid: b77ccd21b3a62ca44aab27ef9ea081cf, type: 2}
+  resolutionU: 512
+  resolutionV: 512
+  m_allowedRecentTextureCount: 1
+  createdTextures: []
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a9ae3f6fd649d4a89d6d73022d35e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startMap: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1

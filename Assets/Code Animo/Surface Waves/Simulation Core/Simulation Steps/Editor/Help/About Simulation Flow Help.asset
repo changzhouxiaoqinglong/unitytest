@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: About Simulation Flow Help
+  m_EditorClassIdentifier: 
+  buttonLabel: Simulation Flow
+  text: 'The ''Simulation Flow'' components manage the order in which simulation steps
+    are called.
+
+
+    By default Unity hides the ''Steps'' list, so click on it, or the arrow next to
+    it, to see or change the current order. The element at the top (index of 0) of
+    the list is executed first.'
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

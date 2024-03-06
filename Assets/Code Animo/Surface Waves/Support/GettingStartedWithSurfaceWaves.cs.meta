@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 826d4191832f6ad4bb4d59b9c1b89cc8
+labels:
+- Surface
+- Waves
+- Simulation
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - aboutHelpMenu: {fileID: 11400000, guid: 4912acba5cd01004a95318093c2d8a2c, type: 2}
+  - introductionArticle: {fileID: 11400000, guid: c7b5aef6b43121b4c94edab36c1252c2,
+      type: 2}
+  - aboutAddingWaves: {fileID: 11400000, guid: f261a9abe44cd2944be93126351e7b11, type: 2}
+  - changingWaveGraphics: {fileID: 11400000, guid: 37ab67dab30778d4a84d72186c23875e,
+      type: 2}
+  - waveSources: {instanceID: 0}
+  - waveGraphics: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

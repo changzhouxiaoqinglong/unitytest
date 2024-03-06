@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 05264f09c8cdcdf44b6f0c584f8efbad
+labels:
+- GPGPU
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - componentHelp: {fileID: 11400000, guid: 503aac656a5719848a15a33ba62df09a, type: 2}
+  - textureSettings: {fileID: 11400000, guid: b77ccd21b3a62ca44aab27ef9ea081cf, type: 2}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 198614e4eb04f644c82368bc69aadca1, type: 3}
+  userData: 

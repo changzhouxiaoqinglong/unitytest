@@ -1,0 +1,6 @@
+Dynamic Texture Debug Tools 0.1
+by Code Animo
+http://codeanimo.com
+
+[-Description-]
+Displays texture fields even when they are continuously updated (like in a simulation). The Texture Analyser Window allows you to increase/decrease brightness or apply any other shader you want, and zoom in on the result. Adding the TextureDebug attribute above a texture field, makes small preview appear in the inspector.

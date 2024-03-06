@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c114c67243e27414aa2e98369d280e49
+labels:
+- Surface
+- Waves
+- Simulation
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - simulation: {instanceID: 0}
+  - simCompute: {fileID: 7200000, guid: 4a28ec0d353a1e743a50875ef0e09056, type: 3}
+  - savedWater: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

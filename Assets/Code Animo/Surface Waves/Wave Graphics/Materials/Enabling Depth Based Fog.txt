@@ -1,0 +1,7 @@
+The materials that use the Complex Water shader have depth based fog. This uses the depth texture created by the currently rendering camera.
+
+So for this to work, you either need to use Deferred Lighting, or enable Depth or DepthNormals DepthTextureMode on the camera (See Unity Script Reference for Camera.depthTextureMode).
+
+
+
+Advanced Alternative: Use Shader.SetGlobalTexture("_CameraDepthTexture", the default depth texture), to set a custom depth manually.

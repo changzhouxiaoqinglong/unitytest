@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: af342d30ba74b01418112e4b727285aa
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_DepthCopyShader: {fileID: 4800000, guid: a60cd620b566cbd42b15ee217dd0d758, type: 3}
+  - m_sourceCopy: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

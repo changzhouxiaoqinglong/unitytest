@@ -1,0 +1,64 @@
+// Copyright © 2014 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel computeBuoyancy
+
+#define numThreadsX 8
+#define numThreadsY 8
+
+float waveHeightScale = 10;
+int groupCountX;
+
+StructuredBuffer<float4> buoyVelocity;
+StructuredBuffer<float4> buoyPosition;
+Texture2D<float4> TerrainHeightIn;
+Texture2D<float4> WaveHeightIn;
+
+RWStructuredBuffer<float3> ForceOut;
+[numthreads(numThreadsX,numThreadsY,1)]
+void computeBuoyancy (uint3 threadId : SV_DispatchThreadID)
+{
+	float3 buoyancyPower = float3(0,12,0);
+	
+	int flatIndex = threadId.y * (numThreadsX * groupCountX) + threadId.x;// Calculate index, based on total number of threads (threadGroups * numThreads)
+	
+	float4 buoyData = buoyPosition[flatIndex];
+	float buoyHeight = buoyData.w;
+	float3 position = buoyData.xyz;
+//	float buoyHeight = 1.0;
+//	float3 position = float3(0,0,0);
+	
+	uint3 coordinates = uint3(position.xz,0);// get Texture coordinates.
+	
+	float3 velocity = buoyVelocity[flatIndex].xyz;
+//	float3 velocity = someName[flatIndex].xyz;
+//	float3 velocity = float3(0,0,0);
+//	float someValue = buoyPosition[flatIndex].w;
+	
+	float4 waveData = WaveHeightIn.Load(coordinates);
+	float4 terrainData = TerrainHeightIn.Load(coordinates);
+	
+	float waveHeight = waveHeightScale * waveData.b;
+	float terrainHeight = waveHeightScale * (terrainData.r + terrainData.g + terrainData.b);
+	
+	float3 outputForce = float3(0,0,0);
+	
+	if (waveHeight > 0){
+		// calculate the portion that is beneath the waves.
+		float surfaceHeight = waveHeight + terrainHeight;
+		float submergedHeight = surfaceHeight - (position.y - 0.5 * buoyHeight);
+		float submergedFraction = saturate(submergedHeight / buoyHeight);
+		float3 buoyancyForce = buoyancyPower * submergedFraction;
+		
+		float3 waveVelocity = float3(waveData.r * 50, 0, waveData.g * 50);
+		float3 relativeVelocity = waveVelocity - velocity.xyz;
+		float3 flowForce = submergedFraction * buoyHeight * relativeVelocity;
+		
+		outputForce = buoyancyForce + flowForce;
+//		outputForce = buoyancyForce + (velocity.xyz);//Debug
+	}
+	ForceOut[flatIndex] = outputForce;
+	//DEBUG: Used for debugging a bug where buoyancy makes it impossible to add waves.
+	/*int flatIndex = threadId.y * numThreadsX + threadId.x;
+	ForceOut[flatIndex] = float3(0,0,0);*/
+}

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1a858339a91215343aedebdd57290192
+labels:
+- Surface
+- Waves
+- Simulation
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - componentHelp: {fileID: 11400000, guid: 828e4fd9ebab4874094709f57447e8ae, type: 2}
+  - standardSettingsPrefab: {fileID: 100000, guid: 0734b7e2794654a478fe449b65b80621,
+      type: 2}
+  - simulationSize: {instanceID: 0}
+  - m_outputData: {instanceID: 0}
+  - heightOffsetData: {instanceID: 0}
+  - waveHeightData: {instanceID: 0}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: d5e7ff867a2704f4791727b5a91e1a10, type: 3}
+  userData: 

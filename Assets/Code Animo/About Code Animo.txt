@@ -1,0 +1,23 @@
+Code Animo
+"Bring Your Computer To Life"
+
+[-About the Company-]
+My name is Laurens Mathot and Code Animo is my company. I help people understand the tech they need to realize their vision and I write code for graphics and tools.
+
+I love it when computers and the worlds created on them seem to come to life. When software is close to being awesome, but seems to be held back by a few problems, my hands start itching. So I learned programming, to be able to make changes.
+
+My goal is to make life easier, more fun and most of all: cooler. So I spend most of my time thinking of ways to improve my work and the work of others. I spend the rest on actually implementing these plans. 
+
+
+Code Animo is based in Amersfoort, The Netherlands
+
+
+[-About the logo-]
+If you see this file bundled with 'Surface Water' you might recognize the logo as a flow map created by the simulation. But the logo was actually created in a very old simulation I created in Flash/PixelBender when I was still in school. To me it symbolizes how simple rules can create amazingly complex systems.
+
+
+[-Developer contact-]
+Website: http://codeanimo.com
+Twitter: @CodeAnimo, @RC-1290
+e-mail: laurens.mathot@codeanimo.com
+Facebook: facebook.com/CodeAnimo

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee040830d1c35f4e804a6fe402e1e30, type: 3}
+  m_Name: Dimensions Help
+  m_EditorClassIdentifier: 
+  buttonLabel: Dimensions (component)
+  text: "The 'Dimensions' component determines the size of the simulation, and how
+    detailed the waves are.\n\nHigher resolutions can be more realistic, but they
+    are also more expensive. Both in terms of memory and GPU time.\n\nAt higher resolutions,
+    waves will also appear to move slower, because all the cells that make up the
+    simulation only interact with their neighbours. So having more cells means the
+    simulation loop has to run more often before all cells have passed on the wave
+    to their neighbours.\n\n\nObjects like buoys and WaveSources need to know which
+    simulation they're in. That's why the Dimensions component automatically resizes
+    the boxCollider (trigger) on the same GameObject.\n\nNOTE: The WaveSurface mesh
+    group isn't automatically resized yet, so you have to manually delete and re-create
+    the Wave Mesh Group after a resize. \n\nTo do this, go to the Game Object called
+    'Wave Surface' under the 'Surface Waves' Game Object, and click 'Delete Group
+    Members'. The button should then change to 'Create Group'. When you click that
+    button, a new group will be created with the new dimensions."
+  drawerScript: {fileID: 11500000, guid: 84ec359f1afedeb4b86564e32b4eecfa, type: 3}

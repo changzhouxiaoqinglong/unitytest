@@ -1,0 +1,37 @@
+// Copyright © 2014 Laurens Mathot
+// Code Animo™ http://codeanimo.com
+
+#pragma kernel ConvertMapToBuffer
+#pragma kernel ConvertBufferToMap
+
+#define numThreadsX 8
+#define numThreadsY 8
+//#define flatIndex threadId.x * numThreadsX + threadId.x
+
+Texture2D<float4> DepthTextureIn;
+RWStructuredBuffer<float4> DepthBufferOut;
+
+[numthreads(numThreadsX,numThreadsY,1)]
+void ConvertMapToBuffer (uint3 threadId : SV_DispatchThreadID){
+	// Assume 1 thread per pixel, and calculate flat index.
+	int textureWidth, textureHeight;
+	DepthTextureIn.GetDimensions(textureWidth, textureHeight);
+	
+	int flatIndex = (threadId.y * textureWidth + threadId.x);
+
+    DepthBufferOut[flatIndex] = DepthTextureIn[threadId.xy].rgba;
+}
+
+StructuredBuffer<float4> DepthBufferIn;
+RWTexture2D<float4> DepthTextureOut;
+
+[numthreads(numThreadsX, numThreadsY, 1)]
+void ConvertBufferToMap (uint3 threadId : SV_DispatchThreadID){
+	// Assume 1 thread per pixel, and calculate flat index.
+	int textureWidth, textureHeight;
+	DepthTextureOut.GetDimensions(textureWidth, textureHeight);
+	
+	int flatIndex = (threadId.y * textureWidth + threadId.x);
+	
+	DepthTextureOut[threadId.xy].rgba = DepthBufferIn[flatIndex];
+}
